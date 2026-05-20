@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">foodrecipe</string>
+    <string name="welcome_background_desc">Food plate background</string>
+    <string name="app_brand">SavorySteps</string>
+    <string name="welcome_title">Your Culinary Journey Starts Here</string>
+    <string name="welcome_subtitle">Discover fresh ingredients, master complex flavors, and bring professional-grade meals to your home table with ease.</string>
+    <string name="get_started">Get Started</string>
+    <string name="log_in">Log In</string>
+    <string name="terms_text">By continuing, you agree to our Terms of Service.</string>
+</resources>
