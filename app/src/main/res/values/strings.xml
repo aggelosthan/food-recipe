@@ -7,5 +7,11 @@
     <string name="welcome_subtitle">Discover fresh ingredients, master complex flavors, and bring professional-grade meals to your home table with ease.</string>
     <string name="get_started">Get Started</string>
     <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
     <string name="terms_text">By continuing, you agree to our Terms of Service.</string>
+    <string name="auth_subtitle">Wholesome cooking made clear.</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="continue_journey">Continue your culinary journey.</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
 </resources>
