@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F4EE"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="14dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:contentDescription="@string/menu"
+                    android:src="@android:drawable/ic_menu_sort_by_size"
+                    android:tint="#253022" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:text="@string/app_brand"
+                    android:textColor="#0C573D"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/bg_avatar_circle"
+                    android:contentDescription="@string/profile"
+                    android:padding="3dp"
+                    android:src="@android:drawable/ic_menu_myplaces" />
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_search"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="8dp"
+                android:hint="@string/search_recipes"
+                android:inputType="text"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColorHint="#868686"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@string/categories"
+                android:textColor="#1D1D1D"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout style="@style/CategoryItemStyle">
+                        <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_crop" />
+                        <TextView style="@style/CategoryTextStyle" android:text="Beef" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/CategoryItemStyle">
+                        <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_compass" />
+                        <TextView style="@style/CategoryTextStyle" android:text="Chicken" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/CategoryItemStyle">
+                        <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_gallery" />
+                        <TextView style="@style/CategoryTextStyle" android:text="Dessert" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/CategoryItemStyle">
+                        <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_week" />
+                        <TextView style="@style/CategoryTextStyle" android:text="Seafood" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/CategoryItemStyle">
+                        <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_my_calendar" />
+                        <TextView style="@style/CategoryTextStyle" android:text="Veg" />
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/featured_recipes"
+                    android:textColor="#1D1D1D"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/view_all"
+                    android:textColor="#D06D33"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_recipe_card"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_recipes_yet"
+                    android:textColor="#2A2A2A"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:text="@string/recipes_api_placeholder"
+                    android:textColor="#6A6A6A"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_bottom_nav"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp">
+
+        <LinearLayout style="@style/BottomTabStyle">
+            <ImageView style="@style/BottomTabIconStyle" android:src="@android:drawable/ic_menu_view" android:tint="#E8F3EB" />
+            <TextView style="@style/BottomTabTextStyle" android:text="@string/browse" android:textColor="#E8F3EB" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/BottomTabStyle">
+            <ImageView style="@style/BottomTabIconStyle" android:src="@android:drawable/btn_star_big_off" />
+            <TextView style="@style/BottomTabTextStyle" android:text="@string/favorites" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/BottomTabStyle">
+            <ImageView style="@style/BottomTabIconStyle" android:src="@android:drawable/ic_menu_agenda" />
+            <TextView style="@style/BottomTabTextStyle" android:text="@string/planner" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
