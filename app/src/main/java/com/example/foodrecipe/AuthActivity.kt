@@ -42,20 +42,16 @@ class AuthActivity : ComponentActivity() {
             val email = etLoginEmail.text.toString().trim()
             val password = etLoginPassword.text.toString()
 
-            if (email == DUMMY_EMAIL && password == DUMMY_PASSWORD) {
+            if (email == "test" && password == "test") {
                 startActivity(Intent(this, HomeActivity::class.java))
             } else {
                 Toast.makeText(
                     this,
-                    "Use dummy account: $DUMMY_EMAIL / $DUMMY_PASSWORD",
+                    "Use dummy account: test / test",
                     Toast.LENGTH_LONG
                 ).show()
             }
         }
     }
 
-    companion object {
-        private const val DUMMY_EMAIL = "demo@savorysteps.com"
-        private const val DUMMY_PASSWORD = "demo1234"
-    }
 }
