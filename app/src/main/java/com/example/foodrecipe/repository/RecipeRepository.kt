@@ -2,6 +2,7 @@ package com.example.foodrecipe.repository
 
 import com.example.foodrecipe.BuildConfig
 import com.example.foodrecipe.data.api.RetrofitClient
+import com.example.foodrecipe.data.model.RecipeDetail
 import com.example.foodrecipe.data.model.RecipeSummary
 
 class RecipeRepository {
@@ -13,6 +14,18 @@ class RecipeRepository {
                 apiKey = BuildConfig.SPOONACULAR_API_KEY
             )
             Result.success(response.results)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun getRecipeDetail(id: Int): Result<RecipeDetail> {
+        return try {
+            val response = RetrofitClient.api.getRecipeDetail(
+                id = id,
+                apiKey = BuildConfig.SPOONACULAR_API_KEY
+            )
+            Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)
         }
