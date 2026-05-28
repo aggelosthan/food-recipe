@@ -5,7 +5,7 @@
     android:background="#F6F4EE"
     android:orientation="vertical">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -129,34 +129,23 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-            <LinearLayout
+            <ProgressBar
+                android:id="@+id/pbLoading"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:visibility="visible" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFeaturedRecipes"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_recipe_card"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_recipes_yet"
-                    android:textColor="#2A2A2A"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:gravity="center"
-                    android:text="@string/recipes_api_placeholder"
-                    android:textColor="#6A6A6A"
-                    android:textSize="12sp" />
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
