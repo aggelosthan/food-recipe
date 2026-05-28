@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6F4EE"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="14dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="14dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_brand"
+            android:textColor="#0C573D"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/bg_avatar_circle"
+            android:contentDescription="@string/profile"
+            android:padding="3dp"
+            android:src="@android:drawable/ic_menu_myplaces" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:text="@string/saved_flavors"
+        android:textColor="#222222"
+        android:textSize="38sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:text="@string/favorites_subtitle"
+        android:textColor="#6A6A6A"
+        android:textSize="12sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="14dp"
+        android:paddingTop="14dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bg_empty_favorites"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@drawable/bg_search"
+                android:contentDescription="@string/find_recipe"
+                android:padding="8dp"
+                android:src="@android:drawable/ic_menu_crop"
+                android:tint="#A4B49D" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/looking_for_inspiration"
+                android:textColor="#2A2A2A"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="@string/favorites_empty_hint"
+                android:textColor="#666666"
+                android:textSize="12sp" />
+
+            <Button
+                android:layout_width="136dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#0A5B3E"
+                android:text="@string/browse_recipes"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_bottom_nav"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="4dp">
+
+        <LinearLayout
+            android:id="@+id/tabBrowse"
+            style="@style/BottomTabStyle">
+
+            <ImageView
+                style="@style/BottomTabIconStyle"
+                android:src="@android:drawable/ic_menu_view" />
+
+            <TextView
+                style="@style/BottomTabTextStyle"
+                android:text="@string/browse" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabFavorites"
+            style="@style/BottomTabStyle"
+            android:background="@drawable/bg_selected_tab">
+
+            <ImageView
+                style="@style/BottomTabIconStyle"
+                android:src="@android:drawable/btn_star_big_off"
+                android:tint="#E8F3EB" />
+
+            <TextView
+                style="@style/BottomTabTextStyle"
+                android:text="@string/favorites"
+                android:textColor="#E8F3EB" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tabPlanner"
+            style="@style/BottomTabStyle">
+
+            <ImageView
+                style="@style/BottomTabIconStyle"
+                android:src="@android:drawable/ic_menu_agenda" />
+
+            <TextView
+                style="@style/BottomTabTextStyle"
+                android:text="@string/planner" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

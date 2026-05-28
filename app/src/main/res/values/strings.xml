@@ -30,4 +30,10 @@
     <string name="recipe_image">Recipe image</string>
     <string name="no_recipes_yet">No recipes yet</string>
     <string name="recipes_api_placeholder">Recipes will appear here after loading from API.</string>
+    <string name="saved_flavors">Saved Flavors</string>
+    <string name="favorites_subtitle">Your personal collection of kitchen victories.</string>
+    <string name="find_recipe">Find recipe</string>
+    <string name="looking_for_inspiration">Looking for more inspiration?</string>
+    <string name="favorites_empty_hint">No favorites yet. Start exploring to save your first meal.</string>
+    <string name="browse_recipes">Browse Recipes</string>
 </resources>

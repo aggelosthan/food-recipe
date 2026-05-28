@@ -2,6 +2,8 @@ package com.example.foodrecipe
 
 import android.os.Bundle
 import android.util.Log
+import android.content.Intent
+import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.foodrecipe.repository.RecipeRepository
@@ -25,6 +27,17 @@ class HomeActivity : ComponentActivity() {
             result.onFailure { error ->
                 Log.e("RecipeFetch", "Failed to fetch recipes", error)
             }
+        }
+
+        val tabFavorites = findViewById<LinearLayout>(R.id.tabFavorites)
+        val tabPlanner = findViewById<LinearLayout>(R.id.tabPlanner)
+
+        tabFavorites.setOnClickListener {
+            startActivity(Intent(this, FavoritesActivity::class.java))
+        }
+
+        tabPlanner.setOnClickListener {
+            // Boilerplate hook for Planner navigation.
         }
     }
 }

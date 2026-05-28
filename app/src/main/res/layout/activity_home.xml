@@ -26,18 +26,10 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:contentDescription="@string/menu"
-                    android:src="@android:drawable/ic_menu_sort_by_size"
-                    android:tint="#253022" />
-
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingStart="10dp"
                     android:text="@string/app_brand"
                     android:textColor="#0C573D"
                     android:textSize="18sp"
@@ -174,17 +166,23 @@
         android:orientation="horizontal"
         android:paddingBottom="4dp">
 
-        <LinearLayout style="@style/BottomTabStyle">
+        <LinearLayout
+            android:id="@+id/tabBrowse"
+            style="@style/BottomTabStyle">
             <ImageView style="@style/BottomTabIconStyle" android:src="@android:drawable/ic_menu_view" android:tint="#E8F3EB" />
             <TextView style="@style/BottomTabTextStyle" android:text="@string/browse" android:textColor="#E8F3EB" />
         </LinearLayout>
 
-        <LinearLayout style="@style/BottomTabStyle">
+        <LinearLayout
+            android:id="@+id/tabFavorites"
+            style="@style/BottomTabStyle">
             <ImageView style="@style/BottomTabIconStyle" android:src="@android:drawable/btn_star_big_off" />
             <TextView style="@style/BottomTabTextStyle" android:text="@string/favorites" />
         </LinearLayout>
 
-        <LinearLayout style="@style/BottomTabStyle">
+        <LinearLayout
+            android:id="@+id/tabPlanner"
+            style="@style/BottomTabStyle">
             <ImageView style="@style/BottomTabIconStyle" android:src="@android:drawable/ic_menu_agenda" />
             <TextView style="@style/BottomTabTextStyle" android:text="@string/planner" />
         </LinearLayout>
