@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Foodrecipe">
         <activity
+            android:name=".RecipeDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".FavoritesActivity"
             android:exported="false" />
         <activity

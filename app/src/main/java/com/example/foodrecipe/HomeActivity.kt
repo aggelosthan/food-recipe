@@ -1,7 +1,7 @@
 package com.example.foodrecipe
 
-import android.os.Bundle
 import android.util.Log
+import android.os.Bundle
 import android.content.Intent
 import android.view.View
 import android.widget.LinearLayout
@@ -28,7 +28,10 @@ class HomeActivity : ComponentActivity() {
         val pbLoading = findViewById<ProgressBar>(R.id.pbLoading)
 
         adapter = RecipeAdapter { recipe ->
-            Log.d("RecipeClick", "Clicked: ${recipe.title}")
+            startActivity(
+                Intent(this, RecipeDetailActivity::class.java)
+                    .putExtra("recipe_id", recipe.id)
+            )
         }
         rvRecipes.layoutManager = LinearLayoutManager(this)
         rvRecipes.adapter = adapter
