@@ -81,27 +81,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <LinearLayout style="@style/CategoryItemStyle">
+                    <LinearLayout android:id="@+id/chipBeef" style="@style/CategoryItemStyle">
                         <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_crop" />
                         <TextView style="@style/CategoryTextStyle" android:text="Beef" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/CategoryItemStyle">
+                    <LinearLayout android:id="@+id/chipChicken" style="@style/CategoryItemStyle">
                         <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_compass" />
                         <TextView style="@style/CategoryTextStyle" android:text="Chicken" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/CategoryItemStyle">
+                    <LinearLayout android:id="@+id/chipDessert" style="@style/CategoryItemStyle">
                         <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_gallery" />
                         <TextView style="@style/CategoryTextStyle" android:text="Dessert" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/CategoryItemStyle">
+                    <LinearLayout android:id="@+id/chipSeafood" style="@style/CategoryItemStyle">
                         <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_week" />
                         <TextView style="@style/CategoryTextStyle" android:text="Seafood" />
                     </LinearLayout>
 
-                    <LinearLayout style="@style/CategoryItemStyle">
+                    <LinearLayout android:id="@+id/chipVeg" style="@style/CategoryItemStyle">
                         <ImageView style="@style/CategoryIconStyle" android:src="@android:drawable/ic_menu_my_calendar" />
                         <TextView style="@style/CategoryTextStyle" android:text="Veg" />
                     </LinearLayout>
