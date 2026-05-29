@@ -39,16 +39,16 @@ class FavoritesActivity : ComponentActivity() {
         rvFavorites.layoutManager = LinearLayoutManager(this)
         rvFavorites.adapter = adapter
 
-        val tabBrowse = findViewById<LinearLayout>(R.id.tabBrowse)
-        val tabPlanner = findViewById<LinearLayout>(R.id.tabPlanner)
-
-        tabBrowse.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
+        findViewById<LinearLayout>(R.id.tabBrowse).setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT))
         }
 
-        tabPlanner.setOnClickListener {
-            // Boilerplate hook for Planner navigation.
+        // tabFavorites is the current screen — no-op
+
+        findViewById<LinearLayout>(R.id.tabPlanner).setOnClickListener {
+            startActivity(Intent(this, PlannerActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT))
         }
 
         findViewById<Button>(R.id.btnBrowse).setOnClickListener {
