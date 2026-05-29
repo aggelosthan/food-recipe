@@ -23,7 +23,9 @@ import kotlinx.coroutines.launch
 
 class HomeActivity : ComponentActivity() {
 
-    private val repository = RecipeRepository()
+    private val repository by lazy {
+        RecipeRepository((applicationContext as App).userPreferences)
+    }
     private lateinit var adapter: RecipeAdapter
     private lateinit var rvRecipes: RecyclerView
     private lateinit var pbLoading: ProgressBar
@@ -80,6 +82,13 @@ class HomeActivity : ComponentActivity() {
         chipVeg.setOnClickListener { onChipTapped(it.id, "vegetarian", etSearch) }
 
         loadRecipes("chicken")
+
+        findViewById<ImageView>(R.id.ivAvatar).setOnClickListener {
+            startActivity(
+                Intent(this, SettingsActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+            )
+        }
 
         // tabBrowse is the current screen — no-op
 

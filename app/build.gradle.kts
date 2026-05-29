@@ -86,6 +86,8 @@ dependencies {
     implementation(libs.navigation.compose)
     // ViewModel
     implementation(libs.lifecycle.viewmodel.compose)
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
