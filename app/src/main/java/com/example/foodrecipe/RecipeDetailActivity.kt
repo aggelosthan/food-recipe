@@ -13,16 +13,24 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
 import coil3.load
 import com.example.foodrecipe.data.model.RecipeDetail
+import com.example.foodrecipe.repository.FavoritesRepository
 import com.example.foodrecipe.repository.RecipeRepository
 import kotlinx.coroutines.launch
 
 class RecipeDetailActivity : ComponentActivity() {
 
-    private val repository = RecipeRepository()
+    private val recipeRepository = RecipeRepository()
+    private lateinit var favoritesRepository: FavoritesRepository
+    private lateinit var ivFavoriteToggle: ImageView
+
+    private var loadedDetail: RecipeDetail? = null
+    private var isFavorited = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_detail)
+
+        favoritesRepository = (applicationContext as App).favoritesRepository
 
         val recipeId = intent.getIntExtra("recipe_id", -1)
         if (recipeId == -1) {
@@ -32,15 +40,36 @@ class RecipeDetailActivity : ComponentActivity() {
 
         val pbLoading = findViewById<ProgressBar>(R.id.pbDetailLoading)
         val scrollContent = findViewById<View>(R.id.scrollContent)
+        ivFavoriteToggle = findViewById(R.id.ivFavoriteToggle)
 
         findViewById<ImageView>(R.id.btnBack).setOnClickListener { finish() }
 
+        ivFavoriteToggle.setOnClickListener {
+            val detail = loadedDetail ?: return@setOnClickListener
+            lifecycleScope.launch {
+                if (isFavorited) {
+                    favoritesRepository.removeFavorite(detail.id)
+                    isFavorited = false
+                    Toast.makeText(this@RecipeDetailActivity, "Removed from favorites", Toast.LENGTH_SHORT).show()
+                } else {
+                    favoritesRepository.addFavorite(detail)
+                    isFavorited = true
+                    Toast.makeText(this@RecipeDetailActivity, "Added to favorites", Toast.LENGTH_SHORT).show()
+                }
+                updateHeartVisual()
+            }
+        }
+
         lifecycleScope.launch {
-            val result = repository.getRecipeDetail(recipeId)
+            val result = recipeRepository.getRecipeDetail(recipeId)
             pbLoading.visibility = View.GONE
             result.onSuccess { detail ->
                 scrollContent.visibility = View.VISIBLE
                 populateDetail(detail)
+                loadedDetail = detail
+                isFavorited = favoritesRepository.isFavorite(detail.id)
+                updateHeartVisual()
+                ivFavoriteToggle.isEnabled = true
             }
             result.onFailure { error ->
                 Toast.makeText(
@@ -49,6 +78,16 @@ class RecipeDetailActivity : ComponentActivity() {
                     Toast.LENGTH_LONG
                 ).show()
             }
+        }
+    }
+
+    private fun updateHeartVisual() {
+        if (isFavorited) {
+            ivFavoriteToggle.setImageResource(android.R.drawable.btn_star_big_on)
+            ivFavoriteToggle.setColorFilter(Color.parseColor("#D06D33"))
+        } else {
+            ivFavoriteToggle.setImageResource(android.R.drawable.btn_star_big_off)
+            ivFavoriteToggle.setColorFilter(Color.parseColor("#0C573D"))
         }
     }
 

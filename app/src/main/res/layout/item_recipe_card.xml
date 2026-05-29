@@ -18,15 +18,7 @@
             android:contentDescription="@string/recipe_image"
             android:scaleType="centerCrop" />
 
-        <ImageButton
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_gravity="top|end"
-            android:layout_margin="6dp"
-            android:background="@drawable/bg_heart"
-            android:contentDescription="Favorite"
-            android:src="@android:drawable/btn_star_big_off"
-            android:tint="#9F6B48" />
+
     </FrameLayout>
 
     <TextView

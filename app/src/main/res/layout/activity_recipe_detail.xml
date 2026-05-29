@@ -50,6 +50,21 @@
                     android:src="@android:drawable/ic_menu_revert"
                     android:tint="#0C573D" />
 
+                <ImageView
+                    android:id="@+id/ivFavoriteToggle"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_heart"
+                    android:clickable="true"
+                    android:contentDescription="Toggle favorite"
+                    android:enabled="false"
+                    android:focusable="true"
+                    android:padding="10dp"
+                    android:src="@android:drawable/btn_star_big_off"
+                    android:tint="#0C573D" />
+
             </FrameLayout>
 
             <!-- Content area -->
