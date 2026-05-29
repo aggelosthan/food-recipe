@@ -81,15 +81,16 @@ class HomeActivity : ComponentActivity() {
 
         loadRecipes("chicken")
 
-        val tabFavorites = findViewById<LinearLayout>(R.id.tabFavorites)
-        val tabPlanner = findViewById<LinearLayout>(R.id.tabPlanner)
+        // tabBrowse is the current screen — no-op
 
-        tabFavorites.setOnClickListener {
-            startActivity(Intent(this, FavoritesActivity::class.java))
+        findViewById<LinearLayout>(R.id.tabFavorites).setOnClickListener {
+            startActivity(Intent(this, FavoritesActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT))
         }
 
-        tabPlanner.setOnClickListener {
-            // Boilerplate hook for Planner navigation.
+        findViewById<LinearLayout>(R.id.tabPlanner).setOnClickListener {
+            startActivity(Intent(this, PlannerActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT))
         }
     }
 

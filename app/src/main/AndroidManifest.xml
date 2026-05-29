@@ -19,10 +19,16 @@
             android:exported="false" />
         <activity
             android:name=".FavoritesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".PlannerActivity"
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
             android:name=".AuthActivity"
             android:exported="false" />
