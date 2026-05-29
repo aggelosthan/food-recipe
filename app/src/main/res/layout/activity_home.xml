@@ -45,6 +45,7 @@
             </LinearLayout>
 
             <EditText
+                android:id="@+id/etSearch"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:layout_marginTop="12dp"
@@ -52,9 +53,11 @@
                 android:drawableStart="@android:drawable/ic_menu_search"
                 android:drawablePadding="8dp"
                 android:hint="@string/search_recipes"
+                android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
+                android:singleLine="true"
                 android:textColorHint="#868686"
                 android:textSize="12sp" />
 
@@ -143,6 +146,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="No recipes found. Try a different search."
+                android:textColor="#868686"
+                android:textSize="14sp"
                 android:visibility="gone" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
