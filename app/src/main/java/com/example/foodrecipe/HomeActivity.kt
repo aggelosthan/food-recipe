@@ -1,11 +1,15 @@
 package com.example.foodrecipe
 
-import android.util.Log
-import android.os.Bundle
+import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.lifecycleScope
@@ -19,13 +23,18 @@ class HomeActivity : ComponentActivity() {
 
     private val repository = RecipeRepository()
     private lateinit var adapter: RecipeAdapter
+    private lateinit var rvRecipes: RecyclerView
+    private lateinit var pbLoading: ProgressBar
+    private lateinit var tvEmptyState: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val rvRecipes = findViewById<RecyclerView>(R.id.rvFeaturedRecipes)
-        val pbLoading = findViewById<ProgressBar>(R.id.pbLoading)
+        rvRecipes = findViewById(R.id.rvFeaturedRecipes)
+        pbLoading = findViewById(R.id.pbLoading)
+        tvEmptyState = findViewById(R.id.tvEmptyState)
+        val etSearch = findViewById<EditText>(R.id.etSearch)
 
         adapter = RecipeAdapter { recipe ->
             startActivity(
@@ -36,22 +45,19 @@ class HomeActivity : ComponentActivity() {
         rvRecipes.layoutManager = LinearLayoutManager(this)
         rvRecipes.adapter = adapter
 
-        lifecycleScope.launch {
-            val result = repository.searchRecipes("chicken")
-            pbLoading.visibility = View.GONE
-            result.onSuccess { recipes ->
-                rvRecipes.visibility = View.VISIBLE
-                adapter.submitList(recipes)
-            }
-            result.onFailure { error ->
-                Log.e("RecipeFetch", "Failed to load recipes", error)
-                Toast.makeText(
-                    this@HomeActivity,
-                    "Failed to load recipes: ${error.message}",
-                    Toast.LENGTH_LONG
-                ).show()
+        etSearch.setOnEditorActionListener { v, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE) {
+                val query = v.text.toString().trim()
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(v.windowToken, 0)
+                loadRecipes(query.ifBlank { "chicken" })
+                true
+            } else {
+                false
             }
         }
+
+        loadRecipes("chicken")
 
         val tabFavorites = findViewById<LinearLayout>(R.id.tabFavorites)
         val tabPlanner = findViewById<LinearLayout>(R.id.tabPlanner)
@@ -62,6 +68,32 @@ class HomeActivity : ComponentActivity() {
 
         tabPlanner.setOnClickListener {
             // Boilerplate hook for Planner navigation.
+        }
+    }
+
+    private fun loadRecipes(query: String) {
+        pbLoading.visibility = View.VISIBLE
+        rvRecipes.visibility = View.GONE
+        tvEmptyState.visibility = View.GONE
+
+        lifecycleScope.launch {
+            val result = repository.searchRecipes(query)
+            pbLoading.visibility = View.GONE
+            result.onSuccess { recipes ->
+                if (recipes.isEmpty()) {
+                    tvEmptyState.visibility = View.VISIBLE
+                } else {
+                    rvRecipes.visibility = View.VISIBLE
+                    adapter.submitList(recipes)
+                }
+            }
+            result.onFailure { error ->
+                Toast.makeText(
+                    this@HomeActivity,
+                    "Failed to load recipes: ${error.message}",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 }
