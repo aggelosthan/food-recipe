@@ -18,6 +18,9 @@
             android:name=".RecipeDetailActivity"
             android:exported="false" />
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".FavoritesActivity"
             android:exported="false"
             android:launchMode="singleTop" />

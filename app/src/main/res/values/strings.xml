@@ -40,4 +40,21 @@
     <string name="planner_subtitle">Your weekly cooking schedule, all in one place.</string>
     <string name="coming_soon">Coming Soon</string>
     <string name="coming_soon_hint">Meal planning tools are on their way. Stay tuned!</string>
+    <string name="meal_ideas_title">Meal Ideas</string>
+    <string name="meal_ideas_subtitle">Find recipes for breakfast, lunch, or dinner.</string>
+    <string name="no_meals_found">No meals found. Try a different type.</string>
+    <string name="settings_title">Preferences</string>
+    <string name="dietary_preference">Dietary preference</string>
+    <string name="intolerances_section">Intolerances</string>
+    <string name="preferences_saved">Preferences saved</string>
+    <string name="diet_none">None</string>
+    <string name="diet_vegetarian">Vegetarian</string>
+    <string name="diet_vegan">Vegan</string>
+    <string name="diet_gluten_free">Gluten-Free</string>
+    <string name="diet_dairy_free">Dairy-Free</string>
+    <string name="intolerance_dairy">Dairy</string>
+    <string name="intolerance_egg">Egg</string>
+    <string name="intolerance_gluten">Gluten</string>
+    <string name="intolerance_peanut">Peanut</string>
+    <string name="intolerance_seafood">Seafood</string>
 </resources>
