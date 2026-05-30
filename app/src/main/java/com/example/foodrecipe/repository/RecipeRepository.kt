@@ -24,7 +24,7 @@ class RecipeRepository(private val userPreferences: UserPreferences? = null) {
             )
             Result.success(response.results)
         } catch (e: Exception) {
-            Result.failure(e)
+            Result.failure(e.toRecipeError())
         }
     }
 
@@ -36,7 +36,7 @@ class RecipeRepository(private val userPreferences: UserPreferences? = null) {
             )
             Result.success(response)
         } catch (e: Exception) {
-            Result.failure(e)
+            Result.failure(e.toRecipeError())
         }
     }
 }

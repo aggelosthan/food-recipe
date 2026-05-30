@@ -20,6 +20,7 @@ import coil3.load
 import com.example.foodrecipe.data.model.RecipeDetail
 import com.example.foodrecipe.repository.FavoritesRepository
 import com.example.foodrecipe.repository.RecipeRepository
+import com.example.foodrecipe.repository.toUserMessage
 import kotlinx.coroutines.launch
 
 class RecipeDetailActivity : ComponentActivity() {
@@ -85,7 +86,7 @@ class RecipeDetailActivity : ComponentActivity() {
             result.onFailure { error ->
                 Toast.makeText(
                     this@RecipeDetailActivity,
-                    "Failed to load recipe: ${error.message}",
+                    error.toUserMessage(this@RecipeDetailActivity),
                     Toast.LENGTH_LONG
                 ).show()
             }

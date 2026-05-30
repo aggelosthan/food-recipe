@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.foodrecipe.repository.RecipeRepository
+import com.example.foodrecipe.repository.toUserMessage
 import com.example.foodrecipe.ui.home.RecipeAdapter
 import kotlinx.coroutines.launch
 
@@ -110,7 +111,7 @@ class PlannerActivity : ComponentActivity() {
             result.onFailure { error ->
                 Toast.makeText(
                     this@PlannerActivity,
-                    "Failed to load meals: ${error.message}",
+                    error.toUserMessage(this@PlannerActivity),
                     Toast.LENGTH_LONG
                 ).show()
             }
